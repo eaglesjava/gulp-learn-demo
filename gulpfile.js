@@ -6,7 +6,6 @@ var gulp = require('gulp');
 	console.log('您好');
 });
 
-
 gulp.task('default',['hello']);*/
 
 //2、复制单个文件
@@ -27,6 +26,10 @@ gulp.task('img',function(){
 	
 });
 
+//4、多个globs
+gulp.task('data',function(){
+	return gulp.src(['xml/*.xml','json/*.json']).pipe(gulp.dest('dist/data'));
+});
 
 
 
