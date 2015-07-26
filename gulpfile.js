@@ -26,11 +26,15 @@ gulp.task('img',function(){
 	
 });
 
-//4、多个globs
+//4、多个globs | 排除
 gulp.task('data',function(){
-	return gulp.src(['xml/*.xml','json/*.json']).pipe(gulp.dest('dist/data'));
+	//多个globs
+	//return gulp.src(['xml/*.xml','json/*.json']).pipe(gulp.dest('dist/data'));
+	
+	//排除
+	return gulp.src(['xml/*.xml','json/*.json','!json/secret-*.json'])
+		.pipe(gulp.dest('dist/data'));
 });
-
 
 
 
