@@ -36,6 +36,18 @@ gulp.task('data',function(){
 		.pipe(gulp.dest('dist/data'));
 });
 
+//5、主任务
+gulp.task('bulid',['copy-index','img','data'],function(){
+	console.log('编译成功!');
+});
+
+//6、文件有变化时自动执行任务
+gulp.task('watch',function(){
+	gulp.watch('index.html',['copy-index']);
+	gulp.watch('img/*.{jpg,png}',['img']);
+	gulp.watch(['xml/*.xml','json/*.json','!json/secret-*.json'],['data']);
+});
+
 
 
 
